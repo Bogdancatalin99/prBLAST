@@ -12,10 +12,12 @@ public class BLASTMain {
 				BLASTControl control = new BLASTControl(vista);
 
 				vista.getbSearch().addActionListener(control);
-				frame.getContentPane().add(vista);
+//jmap				frame.getContentPane().add(vista);
+				frame.setContentPane(vista); // jmap
 				frame.pack();
 				frame.setVisible(true);
-				frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+//jmap				frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //jmap
 			}
 		};
 		SwingUtilities.invokeLater(runnable);

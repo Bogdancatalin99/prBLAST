@@ -35,9 +35,10 @@ public class BLASTVista extends JPanel {
 	private JScrollPane sBar;
 	//---
 	
-	private JPanel pAll; // --> Panel que contiene a los anteriores.
+// jmap	private JPanel pAll; // --> Panel que contiene a los anteriores.
 
-	public void BLASTvista() {
+//	public void BLASTvista() {
+	public BLASTVista() {
 
 		// Ordenamos el panel 'pSearch':
 		pSearch = new JPanel();
@@ -62,14 +63,14 @@ public class BLASTVista extends JPanel {
 
 		lSearchFile = new JLabel("Search File:");
 		pFiles.add(lSearchFile);
-		cbSearchFile = new JComboBox <String> (); // Añadimos el archivo de las secuencias al cbSearchFile
+		cbSearchFile = new JComboBox <String> (); // Aï¿½adimos el archivo de las secuencias al cbSearchFile
 		String sequences = "yeast.aa";
 		cbSearchFile.addItem(sequences);
 		pFiles.add(cbSearchFile);
 		
 		lIndexFile = new JLabel("Index File:");
 		pFiles.add(lIndexFile);
-		cbIndexFile = new JComboBox <String> (); // Añadimos el archivode indices al cbIndexFile
+		cbIndexFile = new JComboBox <String> (); // Aï¿½adimos el archivode indices al cbIndexFile
 		String indexes = "yeast.aa.indexs";
 		cbIndexFile.addItem(indexes);
 		pFiles.add(cbIndexFile);
@@ -101,22 +102,22 @@ public class BLASTVista extends JPanel {
 
 		taArea = new JTextArea();
 		taArea.setEditable(false);
-		pRequest.add(taArea);
+		//pRequest.add(taArea);
 
 		sBar = new JScrollPane(taArea);
 		sBar.setSize(getPreferredSize());
 		pRequest.add(sBar);
 		
 		//Ordenamos el panel con todos los demas paneles:
-		pAll = new JPanel();
-		pAll.setLayout(new GridLayout(4,1));
-		pAll.add(pFiles);
-		pAll.add(pSearch);
-		pAll.add(pButtons);
-		pAll.add(pRequest);
+//jmap		pAll = new JPanel();
+		this.setLayout(new GridLayout(4,1));
+		this.add(pFiles);
+		this.add(pSearch);
+		this.add(pButtons);
+		this.add(pRequest);
 		
 		
-		this.add(pAll);
+//jmap		this.add(pAll);
 
 	}
 
