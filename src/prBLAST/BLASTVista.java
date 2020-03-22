@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class BLASTVista extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+
 	
 	// Ordenamos la interfaz por paneles donde cada uno tiene sus elementos:
 	private JPanel pSearch; // --> Panel que contiene la secuencia y el porcentaje.
@@ -29,12 +29,15 @@ public class BLASTVista extends JPanel {
 	private JComboBox <String> cbIndexFile;
 	// ---
 
-	private JPanel pRequest;
-	private JButton bRequest;
+	private JPanel pRequest; // --> Pannel que contiene el boton de buscar el el area de texto.
+	private JButton bSearch;
 	private JTextArea taArea;
 	private JScrollPane sBar;
+	//---
+	
+	private JPanel pAll; // --> Panel que contiene a los anteriores.
 
-	public void vista() {
+	public void BLASTvista() {
 
 		// Ordenamos el panel 'pSearch':
 		pSearch = new JPanel();
@@ -87,11 +90,14 @@ public class BLASTVista extends JPanel {
 		lNucleotidSeqButton = new JLabel("Nucleotid sequence");
 		pButtons.add(lNucleotidSeqButton);
 
+		ButtonGroup bgButtons = new ButtonGroup();
+		bgButtons.add(rbProtein);
+		bgButtons.add(rbNucleotidSeq);
 		// Ordenamos el 'pRequest':
 		pRequest = new JPanel();
 		pRequest.setLayout(new GridLayout(1, 3));
-		bRequest = new JButton();
-		pRequest.add(bRequest);
+		bSearch = new JButton("Search");
+		pRequest.add(bSearch);
 
 		taArea = new JTextArea();
 		taArea.setEditable(false);
@@ -100,6 +106,17 @@ public class BLASTVista extends JPanel {
 		sBar = new JScrollPane(taArea);
 		sBar.setSize(getPreferredSize());
 		pRequest.add(sBar);
+		
+		//Ordenamos el panel con todos los demas paneles:
+		pAll = new JPanel();
+		pAll.setLayout(new GridLayout(4,1));
+		pAll.add(pFiles);
+		pAll.add(pSearch);
+		pAll.add(pButtons);
+		pAll.add(pRequest);
+		
+		
+		this.add(pAll);
 
 	}
 
@@ -167,8 +184,8 @@ public class BLASTVista extends JPanel {
 		return pRequest;
 	}
 
-	public JButton getbRequest() {
-		return bRequest;
+	public JButton getbSearch() {
+		return bSearch;
 	}
 
 	public JTextArea getTaArea() {

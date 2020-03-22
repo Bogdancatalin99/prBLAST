@@ -11,7 +11,7 @@ public class BLASTMain {
 				BLASTVista vista = new BLASTVista();
 				BLASTControl control = new BLASTControl(vista);
 
-				vista.getbRequest().addActionListener(control);
+				vista.getbSearch().addActionListener(control);
 				frame.getContentPane().add(vista);
 				frame.pack();
 				frame.setVisible(true);

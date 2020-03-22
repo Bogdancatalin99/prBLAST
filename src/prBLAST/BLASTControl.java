@@ -10,7 +10,7 @@ public class BLASTControl implements ActionListener {
 		this.vista = v;
 	}
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(vista.getbRequest())) { // si pulsamos el boton 'Request'...
+		if (e.getSource().equals(vista.getbSearch())) { // si pulsamos el boton 'Search'...
 			if (vista.getCbSequences().getSelectedItem() == null || vista.getTfPercent().getText().equals("")) { 	//si las secuencia del CB es null o el porcentaje 
 				vista.getTaArea().setText("ERROR: fields not completed");									// esta vacio: ERROR
 			}								
@@ -42,15 +42,16 @@ public class BLASTControl implements ActionListener {
 
 	// metodo para comparar si hay secuencias duplicacdas
 	public boolean AlreadySearched(String a) {
+		boolean result = false;
 		int length = vista.getCbSequences().getItemCount();
 		for (int i = 0; i < length; i++) {
 			String actualSeq = vista.getCbSequences().getItemAt(i).toString();
 			if (actualSeq.equals(a)) {
-				return true;
+				result = true;
 			}
 			
 		}
-		return false;
+		return result;
 	}
 
 	public String BLASTSubmitQuery(String Seq, float f, char b) {
